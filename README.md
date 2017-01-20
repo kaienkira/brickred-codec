@@ -1,2 +1,3 @@
-# brickred-codec
+brickred-codec
+==============
 brickred c++ codec library
