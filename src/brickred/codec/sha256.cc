@@ -1,6 +1,5 @@
 #include <brickred/codec/sha256.h>
 
-#include <arpa/inet.h>
 #include <cstdio>
 #include <cstring>
 #include <algorithm>
@@ -72,7 +71,10 @@ static void sha256ProcessBlock(uint32_t *hash, const uint8_t *work_block)
 
     // init arary w
     for (int i = 0; i < 16; ++i) {
-        w[i] = ntohl(((uint32_t *)work_block)[i]);
+        w[i] = (work_block[i * 4] << 24) |
+               (work_block[i * 4 + 1] << 16) |
+               (work_block[i * 4 + 2] << 8) |
+               (work_block[i * 4 + 3]);
     }
     for (int i = 16; i < 64; ++i) {
         w[i] = SIG1(w[i - 2]) + w[i - 7] + SIG0(w[i - 15]) + w[i - 16];
@@ -147,9 +149,16 @@ void Sha256::digest(char hash[32])
 {
     // pad with a 0x80, then 0x0, then length
     static const uint8_t pad[64] = {0x80};
-    uint32_t pad_len[2];
-    pad_len[0] = htonl(message_size_ >> 29);
-    pad_len[1] = htonl(message_size_ << 3);
+    uint8_t pad_len[8];
+    uint64_t bit_size = message_size_ * 8;
+    pad_len[0] = bit_size >> 56;
+    pad_len[1] = bit_size >> 48;
+    pad_len[2] = bit_size >> 40;
+    pad_len[3] = bit_size >> 32;
+    pad_len[4] = bit_size >> 34;
+    pad_len[5] = bit_size >> 16;
+    pad_len[6] = bit_size >> 8;
+    pad_len[7] = bit_size;
 
     size_t wb_size = message_size_ & 63;
     if (wb_size > 55) {
@@ -163,7 +172,10 @@ void Sha256::digest(char hash[32])
     }
 
     for (int i = 0; i < 8; ++i) {
-        ((uint32_t *)hash)[i] = htonl(hash_[i]);
+        hash[i * 4] = hash_[i] >> 24;
+        hash[i * 4 + 1] = hash_[i] >> 16;
+        hash[i * 4 + 2] = hash_[i] >> 8;
+        hash[i * 4 + 3] = hash_[i];
     }
 }
 
