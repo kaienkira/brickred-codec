@@ -3,6 +3,7 @@ include config.mak
 TARGET = build/libbrickredcodec
 SRCS = \
 src/brickred/codec/base64.cc \
+src/brickred/codec/mt19937.cc \
 src/brickred/codec/sha1.cc \
 src/brickred/codec/sha256.cc \
 src/brickred/codec/url.cc \
