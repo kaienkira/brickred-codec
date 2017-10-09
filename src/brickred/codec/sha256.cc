@@ -155,7 +155,7 @@ void Sha256::digest(char hash[32])
     pad_len[1] = bit_size >> 48;
     pad_len[2] = bit_size >> 40;
     pad_len[3] = bit_size >> 32;
-    pad_len[4] = bit_size >> 34;
+    pad_len[4] = bit_size >> 24;
     pad_len[5] = bit_size >> 16;
     pad_len[6] = bit_size >> 8;
     pad_len[7] = bit_size;
