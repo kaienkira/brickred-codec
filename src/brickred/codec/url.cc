@@ -1,6 +1,5 @@
 #include <brickred/codec/url.h>
 
-#include <cstdio>
 #include <algorithm>
 #include <vector>
 

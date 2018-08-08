@@ -38,8 +38,6 @@
 
 #include <brickred/codec/mt19937.h>
 
-#include <cmath>
-
 namespace brickred {
 namespace codec {
 
