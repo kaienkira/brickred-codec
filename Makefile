@@ -16,6 +16,10 @@ ifeq ($(BR_BUILD_TEST), yes)
 	@$(MAKE) -f mak/test/base64_encode.mak $@
 	@$(call ECHO, "[build base64_decode]")
 	@$(MAKE) -f mak/test/base64_decode.mak $@
+	@$(call ECHO, "[build md5_sum]")
+	@$(MAKE) -f mak/test/md5_sum.mak $@
+	@$(call ECHO, "[build md5_sum_binary]")
+	@$(MAKE) -f mak/test/md5_sum_binary.mak $@
 	@$(call ECHO, "[build sha1_sum]")
 	@$(MAKE) -f mak/test/sha1_sum.mak $@
 	@$(call ECHO, "[build sha1_sum_binary]")
