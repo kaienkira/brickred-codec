@@ -158,7 +158,7 @@ std::string Sha1::digest()
     int count = 0;
     for (size_t i = 0; i < sizeof(hash); ++i) {
         count += ::snprintf(hex_output + count,
-                            sizeof(hex_output) - count, "%02hhx", hash[i]);
+            sizeof(hex_output) - count, "%02hhx", (unsigned char)hash[i]);
     }
     return std::string(hex_output);
 }
