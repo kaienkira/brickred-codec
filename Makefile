@@ -11,7 +11,7 @@ endef
 debug release profile clean:
 	@$(call ECHO, "[build libbrickredcodec]")
 	@$(MAKE) -f mak/libbrickredcodec.mak $@
-ifeq ($(BR_BUILD_TEST), yes)
+ifeq ($(BRICKRED_BUILD_TEST), yes)
 	@$(call ECHO, "[build base64_encode]")
 	@$(MAKE) -f mak/test/base64_encode.mak $@
 	@$(call ECHO, "[build base64_decode]")

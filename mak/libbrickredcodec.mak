@@ -11,7 +11,7 @@ src/brickred/codec/url.cc \
 
 LINK_TYPE = static
 INCLUDE = -Isrc
-CPP_FLAG = $(BR_CORE_CPP_FLAG)
+CPP_FLAG = $(BRICKRED_COMPILE_FLAG)
 BUILD_DIR = build
 
 include mak/main.mak
@@ -19,7 +19,8 @@ include mak/main.mak
 .PHONY: install
 
 install:
-	@mkdir -p $(BR_INSTALL_PREFIX)/include/brickred/codec
-	@cp src/brickred/codec/*.h $(BR_INSTALL_PREFIX)/include/brickred/codec
-	@mkdir -p $(BR_INSTALL_PREFIX)/lib
-	@cp $(FINAL_TARGET) $(BR_INSTALL_PREFIX)/lib
+	@mkdir -p "$(BRICKRED_INSTALL_PREFIX)"/include/brickred/codec
+	@cp src/brickred/codec/*.h \
+		"$(BRICKRED_INSTALL_PREFIX)"/include/brickred/codec
+	@mkdir -p "$(BRICKRED_INSTALL_PREFIX)"/lib
+	@cp "$(FINAL_TARGET)" "$(BRICKRED_INSTALL_PREFIX)"/lib
