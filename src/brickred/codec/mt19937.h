@@ -1,8 +1,8 @@
 #ifndef BRICKRED_CODEC_MT19937_H
 #define BRICKRED_CODEC_MT19937_H
 
-#include <stdint.h>
 #include <cstddef>
+#include <cstdint>
 
 #include <brickred/class_util.h>
 #include <brickred/unique_ptr.h>

@@ -1,8 +1,8 @@
 #ifndef BRICKRED_CODEC_SHA1_H
 #define BRICKRED_CODEC_SHA1_H
 
-#include <stdint.h>
 #include <cstddef>
+#include <cstdint>
 #include <string>
 
 #include <brickred/class_util.h>
