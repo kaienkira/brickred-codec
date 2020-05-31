@@ -7,8 +7,7 @@
 
 #include <brickred/class_util.h>
 
-namespace brickred {
-namespace codec {
+namespace brickred::codec {
 
 class Md5 {
 public:
@@ -33,7 +32,6 @@ std::string md5(const char *buffer, size_t size);
 std::string md5Binary(const std::string &str);
 std::string md5Binary(const char *buffer, size_t size);
 
-} // namespace codec
-} // namespace brickred
+} // namespace brickred::codec
 
 #endif

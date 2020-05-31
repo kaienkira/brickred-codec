@@ -3,8 +3,7 @@
 #include <algorithm>
 #include <vector>
 
-namespace brickred {
-namespace codec {
+namespace brickred::codec {
 
 static const char s_encode_table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                      "abcdefghijklmnopqrstuvwxyz"
@@ -148,5 +147,4 @@ std::string base64Decode(const char *buffer, size_t size)
     }
 }
 
-} // namespace codec
-} // namespace brickred
+} // namespace brickred::codec

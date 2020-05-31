@@ -4,8 +4,7 @@
 #include <cstring>
 #include <algorithm>
 
-namespace brickred {
-namespace codec {
+namespace brickred::codec {
 
 Sha256::Sha256()
 {
@@ -223,5 +222,4 @@ std::string sha256Binary(const char *buffer, size_t size)
     return std::string(hash, sizeof(hash));
 }
 
-} // namespace codec
-} // namespace brickred
+} // namespace brickred::codec

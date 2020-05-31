@@ -3,8 +3,7 @@
 #include <algorithm>
 #include <vector>
 
-namespace brickred {
-namespace codec {
+namespace brickred::codec {
 
 static const char s_hex_to_letter[] = "0123456789ABCDEF";
 
@@ -176,5 +175,4 @@ std::string urlDecode(const char *buffer, size_t size)
     }
 }
 
-} // namespace codec
-} // namespace brickred
+} // namespace brickred::codec

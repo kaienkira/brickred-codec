@@ -4,8 +4,7 @@
 #include <cstring>
 #include <algorithm>
 
-namespace brickred {
-namespace codec {
+namespace brickred::codec {
 
 Md5::Md5()
 {
@@ -267,5 +266,4 @@ std::string md5Binary(const char *buffer, size_t size)
     return std::string(hash, sizeof(hash));
 }
 
-} // namespace codec
-} // namespace brickred
+} // namespace brickred::codec

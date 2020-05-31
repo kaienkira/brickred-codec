@@ -38,8 +38,7 @@
 
 #include <brickred/codec/mt19937.h>
 
-namespace brickred {
-namespace codec {
+namespace brickred::codec {
 
 class Mt19937::Impl {
 public:
@@ -240,5 +239,4 @@ double Mt19937::nextDouble()
     return pimpl_->nextDouble();
 }
 
-} // namespace codec
-} // namespace brickred
+} // namespace brickred::codec

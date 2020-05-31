@@ -7,8 +7,7 @@
 #include <brickred/class_util.h>
 #include <brickred/unique_ptr.h>
 
-namespace brickred {
-namespace codec {
+namespace brickred::codec {
 
 class Mt19937 {
 public:
@@ -36,7 +35,6 @@ private:
     UniquePtr<Impl> pimpl_;
 };
 
-} // namespace codec
-} // namespace brickred
+} // namespace brickred::codec
 
 #endif
