@@ -50,11 +50,11 @@ public:
 
     Impl();
     Impl(uint32_t s);
-    Impl(uint32_t key[], size_t key_length);
+    Impl(uint32_t key[], size_t key_size);
     ~Impl();
 
     void seed(uint32_t s);
-    void seed(uint32_t key[], size_t key_length);
+    void seed(uint32_t key[], size_t key_size);
 
     uint32_t nextInt();
     uint32_t nextInt(uint32_t max);
@@ -76,9 +76,9 @@ Mt19937::Impl::Impl(uint32_t s)
     seed(s);
 }
 
-Mt19937::Impl::Impl(uint32_t key[], size_t key_length)
+Mt19937::Impl::Impl(uint32_t key[], size_t key_size)
 {
-    seed(key, key_length);
+    seed(key, key_size);
 }
 
 Mt19937::Impl::~Impl()
@@ -94,13 +94,13 @@ void Mt19937::Impl::seed(uint32_t s)
     }
 }
 
-void Mt19937::Impl::seed(uint32_t key[], size_t key_length)
+void Mt19937::Impl::seed(uint32_t key[], size_t key_size)
 {
     seed(19650218);
 
     int i = 1;
     int j = 0;
-    int k = N > (int)key_length ? N : key_length;
+    int k = N > (int)key_size ? N : key_size;
 
     for (; k > 0; k--) {
         // non linear
@@ -113,7 +113,7 @@ void Mt19937::Impl::seed(uint32_t key[], size_t key_length)
             mt_[0] = mt_[N - 1];
             i = 1;
         }
-        if (j >= (int)key_length) {
+        if (j >= (int)key_size) {
             j = 0;
         }
     }
@@ -200,8 +200,8 @@ Mt19937::Mt19937(uint32_t s) :
 {
 }
 
-Mt19937::Mt19937(uint32_t key[], size_t key_length) :
-    pimpl_(new Impl(key, key_length))
+Mt19937::Mt19937(uint32_t key[], size_t key_size) :
+    pimpl_(new Impl(key, key_size))
 {
 }
 
@@ -214,9 +214,9 @@ void Mt19937::seed(uint32_t s)
     pimpl_->seed(s);
 }
 
-void Mt19937::seed(uint32_t key[], size_t key_length)
+void Mt19937::seed(uint32_t key[], size_t key_size)
 {
-    pimpl_->seed(key, key_length);
+    pimpl_->seed(key, key_size);
 }
 
 uint32_t Mt19937::nextInt()

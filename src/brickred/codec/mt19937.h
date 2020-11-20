@@ -13,11 +13,11 @@ class Mt19937 {
 public:
     Mt19937();
     Mt19937(uint32_t s);
-    Mt19937(uint32_t key[], size_t key_length);
+    Mt19937(uint32_t key[], size_t key_size);
     virtual ~Mt19937();
 
     void seed(uint32_t s);
-    void seed(uint32_t key[], size_t key_length);
+    void seed(uint32_t key[], size_t key_size);
 
     // uniformly distributed on range [0, 0xffffffff]
     uint32_t nextInt();
